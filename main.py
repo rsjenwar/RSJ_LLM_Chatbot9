@@ -82,8 +82,9 @@ def main():
             # LLM
             llm = Ollama(model="llama2",
                          verbose=True,
-                         callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]))
-            print(f"Loaded LLM model {llm.model}")
+                         #callback_manager=CallbackManager([StreamingStdOutCallbackHandler()])
+                         )
+            #print(f"Loaded LLM model {llm.model}")
 
             chain = load_qa_chain(llm=llm, chain_type="stuff")
             response = chain.run(input_documents=docs, question=query)
